@@ -6,7 +6,7 @@
 #include "UnsortedList.h"
 
 using namespace std;
-void PrintList(ofstream& outFile, UnsortedInt& list);
+void PrintList(ofstream& outFile, UnsortedList& list);
 
 int main()
 {
@@ -19,20 +19,20 @@ int main()
 
 	int number;
 	int item;
-	UnsortedInt list;
+	UnsortedList list;
 
 	bool found;
 
 	// Prompt for file names, read file names, and prepare files
-	cout << "Enter name of input command file: " << endl;
+	cout << "Enter name of input command file: ";
 	cin >> inFileName;
 	inFile.open(inFileName);
 
-	cout << "Enter name of output file: " << endl;
+	cout << "Enter name of output file: ";
 	cin >> outFileName;
 	outFile.open(outFileName);
 
-	cout << "Enter name of test run; press return." << endl;
+	cout << "Enter name of test run: ";
 	cin >> outputLabel;
 
 	outFile << outputLabel << endl;
@@ -43,12 +43,12 @@ int main()
 	}
 
 	inFile >> command;
-	//cin >> command;
+	//cin >> command;  // use cin instead of inFile if you want to do command line testing instead
 
-	numCommands = 0;
+	int numCommands = 0;
 	while (command != "Quit")
 	{
-		cout << command;
+		cout << "Command: " << command;
 		if (command == "PutItem")
 		{
 			inFile >> item;
@@ -65,12 +65,11 @@ int main()
 			outFile << item;
 			outFile << " is deleted." << endl;
 		}
-		else if (command == "GetItem")
+		else if (command == "Contains")
 		{
-			//inFile >> item;
-			cin >> item;
-			item = list.GetItem(item, found);
-			if (found) {
+			inFile >> item;
+			//cin >> item;
+			if (list.Contains(item)) {
 				cout << item << " found in list." << endl;
 				outFile << item << " found in list." << endl;
 			}
@@ -109,7 +108,7 @@ int main()
 };
 
 
-void PrintList(ofstream& dataFile, UnsortedInt& list)
+void PrintList(ofstream& dataFile, UnsortedList& list)
 // Pre:  list has been initialized.      
 //       dataFile is open for writing.   
 // Post: Each component in list has been written to dataFile.
@@ -119,7 +118,7 @@ void PrintList(ofstream& dataFile, UnsortedInt& list)
 	int item;
 	dataFile << "PrintList" << endl;
 	cout << ": ";
-	list.ResetList();	// Sets currentPos = -1
+	list.ResetIterator();	// Sets currentPos = -1
 	length = list.GetLength();
 	if (length == 0)
 		dataFile << "List is empty.";
