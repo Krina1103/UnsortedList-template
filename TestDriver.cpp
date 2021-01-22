@@ -26,13 +26,13 @@ int main()
 	bool found;
 
 	// Prompt for file names, read file names, and prepare files
-	cout << "Enter name of input command file; press return." << endl;
+	cout << "Enter name of input command file: " << endl;
 	cin >> inFileName;
-	inFile.open(inFileName.c_str());
+	inFile.open(inFileName);
 
-	cout << "Enter name of output file; press return." << endl;
+	cout << "Enter name of output file: " << endl;
 	cin >> outFileName;
-	outFile.open(outFileName.c_str());
+	outFile.open(outFileName);
 
 	cout << "Enter name of test run; press return." << endl;
 	cin >> outputLabel;
