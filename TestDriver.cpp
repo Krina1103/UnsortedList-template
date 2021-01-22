@@ -2,8 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cctype>
-#include <cstring>
 
 #include "UnsortedList.h"
 
