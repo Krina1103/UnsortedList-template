@@ -1,3 +1,6 @@
+#ifndef UNSORTEDLIST_H
+#define UNSORTEDLIST_H
+
 const int MAX_ITEMS = 5;
 
 class UnsortedList
@@ -57,3 +60,5 @@ private:
   int info[MAX_ITEMS];
   int currentPos;
 };
+
+#endif
