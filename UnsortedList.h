@@ -1,9 +1,9 @@
 const int MAX_ITEMS = 5;
 
-class UnsortedType 
+class UnsortedList
 {
 public:
-  UnsortedType();
+  UnsortedList();
   // Constructor
   
   void MakeEmpty();
