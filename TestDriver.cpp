@@ -59,8 +59,8 @@ int main()
 		}
 		else if (command == "DeleteItem")
 		{
-			//inFile >> item;
-			cin >> item;
+			inFile >> item;
+			//cin >> item;
 			list.DeleteItem(item);
 			outFile << item;
 			outFile << " is deleted." << endl;
@@ -79,7 +79,7 @@ int main()
 			}
 		}
 		else if (command == "GetLength") {
-            cout << "Length is " << list.GetLength() << endl;
+                        cout << "Length is " << list.GetLength() << endl;
 			outFile << "Length is " << list.GetLength() << endl;
 		}
 		else if (command == "IsFull") {
